@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/Logo climate.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="./css/output.css">
+    <title>Climat Changers</title>
+</head>
+<body>
+  <header class="bg-[#0B3D91]  p-4 text-white">
+    <nav class="flex justify-between">
+        <!-- Logo -->
+      <div class="text-lg font-bold "> <img class="rounded-full" src="./images/Logo climate.jpg" alt="Logo climate changers" width="40px"></div>
+
+      <ul class="flex space-x-4">
+        <li><a class="hover:text-[#E6F334]" href="./index.html">Home</a></li>
+        <li><a class="hover:text-[#E6F334]" href="#data">Data</a></li>
+        <li><a class="hover:text-[#E6F334]" href="#visualizations">Visualizations</a></li>
+        <li><a class="hover:text-[#E6F334]" href="#actions">Actions</a></li>
+        <li><a class="hover:text-[#E6F334]" href="#contact">Contact</a></li>
+        <li ><a class="bg-[#E6F334] hover:bg-blue-700 text-black hover:text-white font-bold mx-6 py-[2px] px-4 rounded-full" href="./donne.html">Play</a></li>
+        </ul>
+    </nav>
+  </header>
+
+      <section id="data" class="p-8 bg-gray-100">
+        <h2 class="text-3xl font-semibold mb-4">Données sur les gaz à effet de serre</h2>
+        <p class="mb-6">Explorez les données ouvertes du Centre américain des gaz à effet de serre (US GHG Center).</p>
+        
+        <!-- Filtres -->
+        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mb-6">
+          <div>
+            <label for="gasType" class="block text-gray-700">Type de gaz</label>
+            <select id="gasType" class="mt-1 block w-full bg-white border border-gray-300 py-2 px-3 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+              <option value="co2">CO₂</option>
+              <option value="ch4">CH₄ (Méthane)</option>
+              <option value="n2o">N₂O (Protoxyde d'azote)</option>
+            </select>
+          </div>
+          <div>
+            <label for="yearRange" class="block text-gray-700">Année</label>
+            <select id="yearRange" class="mt-1 block w-full bg-white border border-gray-300 py-2 px-3 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+              <option value="2000-2020">2000 - 2020</option>
+              <option value="1980-2000">1980 - 2000</option>
+              <option value="1960-1980">1960 - 1980</option>
+            </select>
+          </div>
+          <div>
+            <label for="region" class="block text-gray-700">Région</label>
+            <select id="region" class="mt-1 block w-full bg-white border border-gray-300 py-2 px-3 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+              <option value="world">Monde</option>
+              <option value="northAmerica">Amérique du Nord</option>
+              <option value="europe">Europe</option>
+              <option value="asia">Asie</option>
+            </select>
+          </div>
+        </div>
+      
+        <!-- Graphique Chart.js -->
+        <div class="bg-white shadow-lg rounded-lg p-6">
+          <canvas id="gasEmissionChart" class="w-full h-64"></canvas>
+        </div>
+      
+      </section>
+    
+      
+
+      <!-- SECTION DE VISUALISATION -->
+
+      <section id="visualizations" class="p-8">
+        <h2 class="text-3xl font-semibold mb-4">Visualisations</h2>
+        <div id="map"></div>
+      </section>
+      <section id="actions" class="p-8 bg-green-100">
+        <h2 class="text-3xl font-semibold mb-4">Que pouvez-vous faire ?</h2>
+        <p>Découvrez comment vous pouvez réduire votre empreinte carbone.</p>
+        <form class="mt-4">
+          <!-- Formulaire d'empreinte carbone ici -->
+        </form>
+      </section>
+      
+      
+      
+      
+      <h1 class="h-10 text-red-800 underline">hello world</h1>
+      <canvas id="co2Chart"></canvas>
+      <script src="./src/js/api.js"></script>
+
+            <!-- Ajout de Chart.js -->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="./src/js/chart.js"></script>
+            <!-- Ajout de Chart.js -->
+      <script src="https://d3js.org/d3.v6.min.js"></script>
+      <script>
+        // Code pour la visualisation avec D3.js
+      </script>
+</body>
+</html>

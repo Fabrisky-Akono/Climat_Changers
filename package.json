@@ -3,11 +3,9 @@
   "version": "1.0.0",
   "description": "Website story climat",
   "main": "tailwind.config.js",
-  
   "devDependencies": {
     "tailwindcss": "^3.4.13"
   },
-
   "dependencies": {
     "ansi-regex": "^6.1.0",
     "ansi-styles": "^6.2.1",
