@@ -6,94 +6,170 @@
     <link rel="shortcut icon" href="./images/Logo climate.jpg" type="image/x-icon">
     <link rel="stylesheet" href="./css/output.css">
     <title>Climat Changers</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
 </head>
 <body>
-  <header class="bg-[#0B3D91]  p-4 text-white">
-    <nav class="flex justify-between">
-        <!-- Logo -->
-      <div class="text-lg font-bold "> <img class="rounded-full" src="./images/Logo climate.jpg" alt="Logo climate changers" width="40px"></div>
-
-      <ul class="flex space-x-4">
-        <li><a class="hover:text-[#E6F334]" href="./index.html">Home</a></li>
-        <li><a class="hover:text-[#E6F334]" href="#data">Data</a></li>
-        <li><a class="hover:text-[#E6F334]" href="#visualizations">Visualizations</a></li>
-        <li><a class="hover:text-[#E6F334]" href="#actions">Actions</a></li>
-        <li><a class="hover:text-[#E6F334]" href="#contact">Contact</a></li>
-        <li ><a class="bg-[#E6F334] hover:bg-blue-700 text-black hover:text-white font-bold mx-6 py-[2px] px-4 rounded-full" href="./donne.html">Play</a></li>
-        </ul>
-    </nav>
-  </header>
-
-      <section id="data" class="p-8 bg-gray-100">
-        <h2 class="text-3xl font-semibold mb-4">Données sur les gaz à effet de serre</h2>
-        <p class="mb-6">Explorez les données ouvertes du Centre américain des gaz à effet de serre (US GHG Center).</p>
-        
-        <!-- Filtres -->
-        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mb-6">
-          <div>
-            <label for="gasType" class="block text-gray-700">Type de gaz</label>
-            <select id="gasType" class="mt-1 block w-full bg-white border border-gray-300 py-2 px-3 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-              <option value="co2">CO₂</option>
-              <option value="ch4">CH₄ (Méthane)</option>
-              <option value="n2o">N₂O (Protoxyde d'azote)</option>
-            </select>
-          </div>
-          <div>
-            <label for="yearRange" class="block text-gray-700">Année</label>
-            <select id="yearRange" class="mt-1 block w-full bg-white border border-gray-300 py-2 px-3 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-              <option value="2000-2020">2000 - 2020</option>
-              <option value="1980-2000">1980 - 2000</option>
-              <option value="1960-1980">1960 - 1980</option>
-            </select>
-          </div>
-          <div>
-            <label for="region" class="block text-gray-700">Région</label>
-            <select id="region" class="mt-1 block w-full bg-white border border-gray-300 py-2 px-3 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-              <option value="world">Monde</option>
-              <option value="northAmerica">Amérique du Nord</option>
-              <option value="europe">Europe</option>
-              <option value="asia">Asie</option>
-            </select>
-          </div>
-        </div>
-      
-        <!-- Graphique Chart.js -->
-        <div class="bg-white shadow-lg rounded-lg p-6">
-          <canvas id="gasEmissionChart" class="w-full h-64"></canvas>
-        </div>
-      
-      </section>
+  <main>
+    <header class="bg-[#0B3D91]  p-4 text-white">
+      <nav class="flex justify-between">
+          <!-- Logo -->
+        <div class="text-lg font-bold "> <img class="rounded-full" src="./images/Logo climate.jpg" alt="Logo climate changers" width="40px"></div>
+        <ul class="flex space-x-4">
+          <li><a class="hover:text-[#E6F334]" href="./index.html">Home</a></li>
+          <li><a class="hover:text-[#E6F334]" href="#data">Data</a></li>
+          <li><a class="hover:text-[#E6F334]" href="#visualizations">Visualizations</a></li>
+          <li><a class="hover:text-[#E6F334]" href="#actions">Actions</a></li>
+          <li><a class="hover:text-[#E6F334]" href="#contact">Contact</a></li>
+          <li ><a class="bg-[#E6F334] hover:bg-blue-700 text-black hover:text-white font-bold mx-6 py-[2px] px-4 rounded-full" href="./play.html">Play</a></li>
+          </ul>
+      </nav>
+    </header>
     
-      
+    <!-- DATA -->
+    <section id="data" class="p-8 bg-gray-100">
+    <h2 class="text-3xl font-semibold mb-4">Greenhouse gas data</h2>
+    <p class="mb-6">Explore open data from the US GHG Center.</p>
+    <p class="mb-4">Use the tools below to explore greenhouse gas emissions data. Choose a gas type, time period, and region to view trends. Filters help you customize your search and discover relevant information.</p>
+    
+    <!-- Filtres -->
+    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mb-6">
+        <div>
+            <label for="gasType" class="block text-gray-700">Gas type</label>
+            <select id="gasType" class="mt-1 block w-full bg-white border border-gray-300 py-2 px-3 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                <option value="co2">CO₂</option>
+                <option value="ch4">CH₄ (Methane)</option>
+                <option value="n2o">N₂O (Nitrous oxide)</option>
+            </select>
+        </div>
+        <div>
+            <label for="yearRange" class="block text-gray-700">Year</label>
+            <select id="yearRange" class="mt-1 block w-full bg-white border border-gray-300 py-2 px-3 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                <option value="2000-2020">2000 - 2020</option>
+                <option value="1980-2000">1980 - 2000</option>
+                <option value="1960-1980">1960 - 1980</option>
+            </select>
+        </div>
+        <div>
+            <label for="region" class="block text-gray-700">Region</label>
+            <select id="region" class="mt-1 block w-full bg-white border border-gray-300 py-2 px-3 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                <option value="world">World</option>
+                <option value="NorthAmerica">NorthAmerica</option>
+                <option value="europe">Europe</option>
+                <option value="asia">Asia</option>
+            </select>
+        </div>
+    </div>
+    <!-- Graphique Chart.js -->
+    <div class="bg-white shadow-lg rounded-lg p-6">
+        <canvas id="gasEmissionChart" class="w-full h-64"></canvas>
+    </div>
+    </section>
+    
+    <!-- SECTION DE VISUALIZATION -->
+    <section id="visualizations" class="p-8">
+    <h2 class="text-3xl font-semibold mb-4">Visualizations</h2>
+    <p class="mb-4">Interagissez avec la carte ci-dessous pour visualiser les données d'émissions. Dessinez des zones spécifiques et saisissez les données d'émissions pour ces régions. Cette fonctionnalité vous permet d'explorer les émissions localisées et d'en comprendre l'impact.</p>
+    
+    <!-- Map Container -->
+    <div id="map" style="height: 500px;" aria-label="Map for drawing emissions areas"></div>
+    <script>
+      // Initialize the map and set its view to a geographical point and zoom level
+      var map = L.map('map').setView([51.505, -0.09], 2);
+    
+      // Add a tile layer (this is the base map from OpenStreetMap)
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+    
+      // Initialize Leaflet Draw Control for drawing shapes
+      var drawControl = new L.Control.Draw({
+        edit: {
+          featureGroup: new L.FeatureGroup() // Group for storing the drawn shapes
+        },
+        draw: {
+          polygon: true,  // Enable polygon drawing
+          rectangle: true // Enable rectangle drawing
+        }
+      });
+    
+      // Add the draw control to the map
+      map.addControl(drawControl);
+    
+      // Create a layer group to store the drawn shapes
+      var drawnItems = new L.FeatureGroup();
+      map.addLayer(drawnItems);
+    
+      // Handle the creation of new shapes on the map
+      map.on(L.Draw.Event.CREATED, function (event) {
+        var layer = event.layer; // Get the drawn shape (layer)
+    
+        // Prompt the user for emissions data
+        var emissions = prompt("Enter carbon emissions for this area (in tons):");
+    
+        if (emissions) {
+          // Add the shape to the map and bind a popup with the entered emissions data
+          layer.bindPopup("Carbon Emissions: " + emissions + " tons").addTo(drawnItems);
+        }
+      });
+    </script>
+    </section>
+    
+    <!-- Formulaire d'actions -->
+    <section id="actions" class="p-8 bg-blue-200">
+    <h2 class="text-3xl font-semibold mb-4">What can you do?</h2>
+    <p>Discover how your daily activities contribute to your carbon footprint. Saisissez vos données ci-dessous pour estimer votre empreinte carbone et recevez des conseils pour la réduire. Engagez-vous activement dans la lutte contre le changement climatique en apportant des changements à votre mode de vie.</p>
+    
+    <form class="mt-4">
+        <div class="mb-4">
+            <label for="electricityUsage" class="block text-gray-700">Electricity consumption (kWh per month)</label>
+            <input type="number" id="electricityUsage" placeholder="Ex: 300" class="mt-1 block w-full border border-gray-300 p-2">
+        </div>
+        <div class="mb-4">
+            <label for="milesDriven" class="block text-gray-700">Kilometers traveled by car per month</label>
+            <input type="number" id="milesDriven" placeholder="Ex: 800" class="mt-1 block w-full border border-gray-300 p-2">
+        </div>
+        <div class="mb-4">
+            <label for="flightsTaken" class="block text-gray-700">Number of flights per year</label>
+            <input type="number" id="flightsTaken" placeholder="Ex: 2" class="mt-1 block w-full border border-gray-300 p-2">
+        </div>
+        <button type="button" id="calculateButton" class="bg-blue-500 text-white py-2 px-4 rounded">Calculate my carbon footprint</button>
+    </form>
+    <div id="results" class="mt-4 hidden">
+        <h3 class="text-xl font-semibold">Your estimated carbon footprint:</h3>
+        <p id="carbonFootprint" class="text-lg"></p>
+    </div>
+    <div id="suggestions" class="mt-4 hidden">
+        <h3 class="text-xl font-semibold">Suggestions to reduce your carbon footprint:</h3>
+        <ul id="suggestionList" class="list-disc pl-5">
+            <li>Turn off the lights when you leave a room.</li>
+            <li>Use public transportation or carpool.</li>
+            <li>Eat a plant-based diet.</li>
+            <li>Use energy-efficient appliances.</li>
+            <li>Plan a vacation without flying.</li>
+        </ul>
+    </div>
+    </section>
+  </main> 
+  
 
-      <!-- SECTION DE VISUALISATION -->
-
-      <section id="visualizations" class="p-8">
-        <h2 class="text-3xl font-semibold mb-4">Visualisations</h2>
-        <div id="map"></div>
-      </section>
-      <section id="actions" class="p-8 bg-green-100">
-        <h2 class="text-3xl font-semibold mb-4">Que pouvez-vous faire ?</h2>
-        <p>Découvrez comment vous pouvez réduire votre empreinte carbone.</p>
-        <form class="mt-4">
-          <!-- Formulaire d'empreinte carbone ici -->
-        </form>
-      </section>
-      
-      
-      
-      
-      <h1 class="h-10 text-red-800 underline">hello world</h1>
-      <canvas id="co2Chart"></canvas>
-      <script src="./src/js/api.js"></script>
+<canvas id="co2Chart"></canvas>
+<script src="./js/api.js"></script>
+<script src="./js/actionForm.js"></script>
 
             <!-- Ajout de Chart.js -->
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      <script src="./src/js/chart.js"></script>
-            <!-- Ajout de Chart.js -->
+      <script src="./js/chart.js"></script>
+            <!-- Ajout de D3.js -->
       <script src="https://d3js.org/d3.v6.min.js"></script>
       <script>
         // Code pour la visualisation avec D3.js
       </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+      <footer class="font-bold  text-xl text-white bg-blue-900 text-center p-8">
+        <p>-Tous droits reserves &#169;2024</p>
+      </footer> 
 </body>
 </html>

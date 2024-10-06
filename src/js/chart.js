@@ -1,5 +1,5 @@
 var ctx = document.getElementById('co2Chart').getContext('2d');
-var myChart = new Chart(ctx, {
+var myChart = new Chart( {
     type: 'line',
     data: {
         labels: ['2000', '2005', '2010', '2015', '2020'],
@@ -36,15 +36,15 @@ var myChart = new Chart(ctx, {
  };
 
  // Configuration initiale du graphique
- const ctx = document.getElementById('gasEmissionChart').getContext('2d');
- let gasEmissionChart = new Chart(ctx, {
+ const xtc = document.getElementById('gasEmissionChart').getContext('2d');
+ let gasEmissionChart = new Chart(xtc, {
    type: 'line',
    data: {
      labels: ['2000', '2002', '2004', '2006', '2008', '2010', '2012', '2014', '2016', '2018'],
      datasets: [{
        label: 'Émissions de CO₂',
        data: exampleData.co2['2000-2020'],
-       borderColor: 'rgba(75, 192, 192, 1)',
+       borderColor: '#0260FF',
        borderWidth: 2
      }]
    },
