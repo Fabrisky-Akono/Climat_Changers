@@ -3,11 +3,9 @@
   "version": "1.0.0",
   "description": "Website story climat",
   "main": "tailwind.config.js",
-  
   "devDependencies": {
     "tailwindcss": "^3.4.13"
   },
-
   "dependencies": {
     "ansi-regex": "^6.1.0",
     "ansi-styles": "^6.2.1",
@@ -100,7 +98,8 @@
     "yaml": "^2.5.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch"
   },
   "repository": {
     "type": "git",
