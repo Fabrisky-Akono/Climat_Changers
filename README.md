@@ -1,123 +1,117 @@
 🌍 Climate Changers
 
-**Climate Changers** est un projet collaboratif qui raconte l’histoire de notre Terre et met en lumière son évolution environnementale. Nous voulons que chacun prenne conscience des impacts du changement climatique sur la planète et de la nécessité d’agir. Le projet s'inscrit dans le cadre du **NASA Space Apps Challenge 2024**, sous le thème "Tell Us a Climate Story!"
+**Climate Changers** is a collaborative project that tells the story of our Earth and highlights its environmental evolution. We want everyone to become aware of the impacts of climate change on the planet and the need to take action. The project is part of the **NASA Space Apps Challenge 2024**, under the theme "Tell Us a Climate Story!"
 
-## 🚀 Objectif du projet
-Le but de ce projet est de :
-- **Sensibiliser** le grand public à l’histoire du climat de la Terre.
-- **Mettre en évidence** les changements climatiques passés et présents.
-- **Proposer des solutions** et des actions que chacun peut entreprendre pour inverser ou atténuer ces effets.
-- **Collaborer** dans le cadre du challenge mondial NASA Space Apps Challenge 2024.
+## 🚀 Project Goal
+The goal of this project is to:
+- **Raise awareness** among the general public about the history of the Earth's climate.
+- **Highlight** past and present climate changes.
+- **Propose solutions** and actions that everyone can take to reverse or mitigate these effects.
+- **Collaborate** in the global NASA Space Apps Challenge 2024.
 
-### 🔗 Lien vers le challenge
-[Participer au NASA Space Apps Challenge 2024](https://www.spaceappschallenge.org/nasa-space-apps-2024/challenges/tell-us-a-climate-story/)
+### 🔗 Link to the challenge
+[Participate in the NASA Space Apps Challenge 2024](https://www.spaceappschallenge.org/nasa-space-apps-2024/challenges/tell-us-a-climate-story/)
 
 ---
 
-## 📜 Table des matières
-- [Technologies utilisées](#technologies-utilisées)
-- [Fonctionnalités principales](#fonctionnalités-principales)
+## 📜 Table of contents
+- [Technologies used](#technologies-used)
+- [Main features](#main-features)
 - [Installation](#installation)
-- [Contribuer](#contribuer)
+- [Contribute](#contribute)
 - [License](#license)
 - [Contact](#contact)
 
 ---
 
-## 🛠️ Technologies utilisées
+## 🛠️ Technologies used
 
-- **Frontend** : HTML, CSS, JavaScript (Framework suggéré : Tailwind Css)
-- **Backend** : Node.js, Express
-- **Base de données** : MongoDB / PostgreSQL
-- **APIs** : NASA APIs, OpenWeatherMap API
-- **Outils de visualisation** : D3.js pour les infographies dynamiques et Chart.js pour les courbes de température
+- **Frontend** : HTML, CSS, JavaScript (Suggested framework : Tailwind Css)
+- **Backend** : Node.js
+- **APIs** : NASA APIs,
+- **Visualization tools** : D3.js for dynamic infographics and Chart.js for temperature curves
 
 ---
 
-## ✨ Fonctionnalités principales
-- **Chronologie interactive du climat** : Parcourez les différentes époques de l’histoire climatique de la Terre.
-- **Visualisation des données** : Graphiques sur les températures, les émissions de CO2 et les événements climatiques extrêmes.
-- **Simulateur d’empreinte carbone** : Calculez votre impact personnel sur l’environnement.
-- **Récits interactifs** : Découvrez les histoires du climat racontées par des experts et des citoyens.
-- **Actions pour le futur** : Des recommandations personnalisées pour réduire votre empreinte écologique.
+## ✨ Main features
+- **Interactive climate timeline** : Browse through different eras of Earth's climate history.
+- **Data visualization** : Graphs on temperatures, CO2 emissions and extreme weather events.
+- **Carbon footprint simulator** : Calculate your personal impact on the environment.
+- **Interactive stories** : Discover climate stories told by experts and citizens.
+- **Actions for the future** : Personalized recommendations to reduce your ecological footprint.
 
 ---
 
 ## 🚀 Installation
 
-### Prérequis
-- Node.js (version 16 ou supérieure)
-- MongoDB ou PostgreSQL (pour la base de données)
+### Prerequisites
+- Node.JS (version 16 or higher)
+- Tailwind Css
 - Git
 
-### Étapes
+### Steps
 
-1. Clonez le dépôt :
-   ```bash
-   git clone https://github.com/Fabrisky-Akono/climate-changers.git
-   ```
-2. Installez les dépendances :
-   ```bash
-   cd climate-changers
-   npm install
-   ```
-3. Créez un fichier `.env` avec les informations de configuration :
-   ```bash
-   touch .env
-   ```
-   Ajoutez les variables d'environnement :
-   ```bash
-   API_KEY=your_nasa_api_key
-   DATABASE_URL=your_database_url
-   ```
-4. Lancez l'application localement :
-   ```bash
-   npm run start
-   ```
-
-5. Ouvrez le navigateur à l’adresse suivante :
-   ```bash
-   http://localhost:3000
-   ```
+1. Clone the repository:
+```bash
+git clone https://github.com/Fabrisky-Akono/climate-changers.git
+```
+2. Install dependencies:
+```bash
+cd climate-changers
+npm install
+```
+3. Create a `.env` file with configuration information:
+```bash
+touch .env
+```
+Add the environment variables:
+```bash
+API_KEY=your_nasa_api_key
+DATABASE_URL=your_database_url
+```
+4. Run the application locally:
+```bash
+npm run build
+```
 
 ---
 
-## 🤝 Contribuer
+## 🤝 Contribute
 
-Nous sommes ouverts à toutes les contributions ! Voici comment vous pouvez participer :
+- LÉONNEL NJIKAM ( leoackhunter@gmail.com )
+- KATEU DJUIFO KORALLY ( korallyfleurkateu@gmail.com )
+- MAYA GASTLI
 
-1. **Fork** le dépôt.
-2. Créez une **branche** avec un nom descriptif de votre contribution :
-   ```bash
-   git checkout -b feature/ajout-nouvelle-section
-   ```
-3. Effectuez vos modifications.
-4. **Commit** et **push** vos changements :
-   ```bash
-   git commit -m "Ajout d'une nouvelle section interactive"
-   git push origin feature/ajout-nouvelle-section
-   ```
-5. Ouvrez une **pull request** et décrivez vos modifications.
+We welcome all contributions! Here's how you can participate:
 
-Pour toute question ou suggestion, n'hésitez pas à ouvrir un **issue**.
+1. **Fork** the repository.
+2. Create a **branch** with a descriptive name for your contribution:
+```bash
+git checkout -b feature/add-new-section
+```
+3. Make your changes.
+4. **Commit** and **push** your changes:
+```bash
+git commit -m "Adding a new interactive section"
+git push origin feature/add-new-section
+```
+5. Open a **pull request** and describe your changes.
+
+For any questions or suggestions, feel free to open an **issue**.
 
 ---
 
 ## 📄 License
 
-Ce projet est sous licence MIT.
+This project is licensed under the MIT License.
 
 ---
 
 ## 📬 Contact
 
-- Auteur : Fabrisky Akono (https://github.com/Fabrisky-Akono)
-- Email : Fabriskyboss1@gmail.com
+- Author: Fabrisky Akono (https://github.com/Fabrisky-Akono)
+- Email: Fabriskyboss1@gmail.com
 
 ---
 
-Ensemble, créons une meilleure compréhension du climat et des actions que nous pouvons entreprendre pour préserver notre planète 🌿.
-
----
-
-Cela rendra le README plus clair et complet, tout en facilitant la collaboration et la contribution.
+Together, let's create a better understanding of the climate and the actions we can take to preserve our planet 🌿.
